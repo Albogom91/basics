@@ -1,6 +1,7 @@
 package com.belhard.basics.linear;
 import java.util.Scanner;
 
+import com.belhard.basics.exceptions.IllegalNumberException;
 import com.belhard.basics.util.ConsoleReader;
 
 public class Task3 {
@@ -10,7 +11,12 @@ public class Task3 {
 		System.out.println("You will be asked to enter time in seconds (positive integer).");
 		int timeInSeconds = (int) ConsoleReader.getDoubleType(in);
 		in.close();
-		if (timeInSeconds < 0) {
+		
+		try {
+			if (timeInSeconds < 0) {
+				throw new IllegalNumberException();
+			}
+		}catch(Exception e) {
 			System.out.println("Invalid time, can't be negative!");
 			return;
 		}

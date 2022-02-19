@@ -3,6 +3,7 @@ package com.belhard.basics.onedimentional;
 import java.util.Scanner;
 
 import com.belhard.basics.util.ConsoleReader;
+import com.belhard.basics.exceptions.IllegalNumberException;
 import com.belhard.basics.util.ArrayMethods;
 
 public class Task1 {
@@ -14,11 +15,16 @@ public class Task1 {
 		int arrayLength = (int) ConsoleReader.getDoubleType(in);
 		ArrayMethods.checkArrayLength(arrayLength);
 		int denominator = (int) ConsoleReader.getDoubleType(in);
-		if (denominator == 0) {
+		in.close();
+		
+		try {
+			if (denominator == 0) {
+				throw new IllegalNumberException();
+			}
+		}catch(Exception e) {
 			System.out.println("Invalid denominator, can't divide by zero!");
 			return;
 		}
-		in.close();
 		
 		int RANDOM_LW_LIMIT = -100;
 		int RANDOM_UP_LIMIT = 100;

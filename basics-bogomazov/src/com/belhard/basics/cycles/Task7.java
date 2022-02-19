@@ -2,6 +2,7 @@ package com.belhard.basics.cycles;
 
 import java.util.Scanner;
 
+import com.belhard.basics.exceptions.IllegalRangeInputException;
 import com.belhard.basics.util.ConsoleReader;
 
 public class Task7 {
@@ -14,8 +15,13 @@ public class Task7 {
 		int lowerRange = (int) ConsoleReader.getDoubleType(in);
 		int upperRange = (int) ConsoleReader.getDoubleType(in);
 		in.close();
-		if (upperRange < 0 || lowerRange < 0 || lowerRange > upperRange) {
-			System.out.println("Invalid input!");
+		
+		try {
+			if (upperRange < 0 || lowerRange < 0 || lowerRange > upperRange) {
+				throw new IllegalRangeInputException();
+			}
+		}catch(Exception e) {
+			System.out.println("Invalid range!");
 			return;
 		}
 

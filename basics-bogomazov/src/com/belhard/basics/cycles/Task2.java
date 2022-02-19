@@ -2,6 +2,7 @@ package com.belhard.basics.cycles;
 
 import java.util.Scanner;
 
+import com.belhard.basics.exceptions.*;
 import com.belhard.basics.util.ConsoleReader;
 
 public class Task2 {
@@ -18,7 +19,11 @@ public class Task2 {
 		double step = ConsoleReader.getDoubleType(in);
 		in.close();
 		
-		if (lowerRange >= upperRange || step <= 0) {
+		try {
+			if (lowerRange >= upperRange || step <= 0) {
+				throw new IllegalRangeInputException();
+			}
+		}catch(Exception e) {
 			System.out.println("Invalid range and/or step!");
 			return;
 		}

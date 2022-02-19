@@ -2,6 +2,7 @@ package com.belhard.basics.linear;
 
 import java.util.Scanner;
 
+import com.belhard.basics.exceptions.IllegalNumberException;
 import com.belhard.basics.util.ConsoleReader;
 
 public class Task2 {
@@ -12,10 +13,16 @@ public class Task2 {
 		System.out.println("If there are more than 3 decimal places those extra decimal places will be cut.");
 		double threeDecimalDouble = ConsoleReader.getDoubleType(in);
 		in.close();
-		if (threeDecimalDouble > 1000 || threeDecimalDouble < 100) {
-			System.out.println("Not a three digit number! Exiting application");
+		
+		try {
+			if (threeDecimalDouble > 1000 || threeDecimalDouble < 100) {
+				throw new IllegalNumberException();
+			}
+		}catch(Exception e) {
+			System.out.println("Not a three digit number! Exiting application!");
 			return;
 		}
+
 		threeDecimalDouble = roundToThreeDecimalPlaces(threeDecimalDouble);
 		double swappedThreeDecimalDouble = swapIntegerAndDecimalParts(threeDecimalDouble);
 

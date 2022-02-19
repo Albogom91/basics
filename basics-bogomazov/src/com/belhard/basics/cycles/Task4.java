@@ -2,6 +2,7 @@ package com.belhard.basics.cycles;
 
 import java.util.Scanner;
 
+import com.belhard.basics.exceptions.IllegalRangeInputException;
 import com.belhard.basics.util.ConsoleReader;
 
 public class Task4 {
@@ -12,11 +13,16 @@ public class Task4 {
 		System.out.println("Following application will show part ASCII table from your first number till second.");
 		int lowerRange = (int) ConsoleReader.getDoubleType(in);
 		int upperRange = (int) ConsoleReader.getDoubleType(in);
-		if (lowerRange < 0 || lowerRange > 127 || upperRange < 0 || upperRange > 127) {
+		in.close();
+		
+		try {
+			if (lowerRange < 0 || lowerRange > 127 || upperRange < 0 || upperRange > 127) {
+				throw new IllegalRangeInputException();
+			}
+		}catch(Exception e) {
 			System.out.println("Invalid range!");
 			return;
 		}
-		in.close();
 		
 		showAscii((char) lowerRange, (char) upperRange);
 			

@@ -1,8 +1,11 @@
 package com.belhard.basics.cycles;
+
 import java.util.Scanner;
 
 import com.belhard.basics.util.ConsoleReader;
 import com.belhard.basics.util.MathOperations;
+
+import com.belhard.basics.exceptions.*;
 
 public class Task1 {
 
@@ -12,8 +15,12 @@ public class Task1 {
 		System.out.println("Following application will show the sum of integers from 1 to your number.");
 		int upperRange = (int) ConsoleReader.getDoubleType(in);
 		in.close();
-		if (upperRange < 1) {
-			System.out.println("Invalid unput! Positive integer required.");
+		try {
+			if (upperRange < 1) {
+				throw new IllegalNumberException();
+			}
+		}catch(Exception e) {
+			System.out.println("Invalid unput! Positive integer required!");
 			return;
 		}
 		
