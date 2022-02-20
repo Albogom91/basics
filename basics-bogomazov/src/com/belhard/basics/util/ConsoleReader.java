@@ -48,7 +48,7 @@ public class ConsoleReader {
 			if (choice < 1 || choice > 3) {
 				throw new IllegalRangeInputException();
 			}
-		}catch (RuntimeException e) {
+		}catch (Exception e) {
 			scan.next();
 			System.out.println("Invalid input(1, 2 or 3 was expected)!");
 			System.out.println("Please, try again:");
