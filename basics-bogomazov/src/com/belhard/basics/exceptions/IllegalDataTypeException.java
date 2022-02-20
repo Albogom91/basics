@@ -1,6 +1,6 @@
 package com.belhard.basics.exceptions;
 
-public class IllegalDataTypeException extends RuntimeException {
+public class IllegalDataTypeException extends Exception {
 
 	/**
 	 * 

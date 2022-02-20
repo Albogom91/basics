@@ -1,6 +1,6 @@
 package com.belhard.basics.exceptions;
 
-public class IllegalRangeInputException extends RuntimeException{
+public class IllegalRangeInputException extends Exception{
 
 	/**
 	 * 

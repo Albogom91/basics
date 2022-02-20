@@ -1,6 +1,6 @@
 package com.belhard.basics.exceptions;
 
-public class IllegalNumberException extends RuntimeException {
+public class IllegalNumberException extends Exception {
 
 	/**
 	 * 
